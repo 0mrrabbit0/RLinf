@@ -1,0 +1,1 @@
+- [Claude notes workflow](claude_notes_workflow.md) — 每次对话需把新需求/变更/问题回写到 `docs/claude-notes/` 五个文件
