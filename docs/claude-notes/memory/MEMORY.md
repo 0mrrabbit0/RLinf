@@ -1,1 +1,2 @@
 - [Claude notes workflow](claude_notes_workflow.md) — 每次对话需把新需求/变更/问题回写到 `docs/claude-notes/` 五个文件
+- [Git remote setup](git_remote_setup.md) — origin 是 0mrrabbit0/RLinf（个人仓库），upstream 是上游官方仓库

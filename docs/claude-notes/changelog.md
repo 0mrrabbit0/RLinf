@@ -18,6 +18,16 @@
 
 ---
 
+## [2026-05-22] 推送到个人仓库 0mrrabbit0/RLinf
+- **类型**：chore
+- **范围**：git remote / GitHub
+- **动机**：把 `docs/claude-notes/` 及 memory 快照保存到 wangyichen 自己账号下的仓库。
+- **变更**：
+  - 通过 `gh CLI`（用户本地下载 v2.62.0 到 `~/.local/bin/gh`，使用 fine-grained PAT 含 Account: Administration RW 权限）创建 `github.com/0mrrabbit0/RLinf`（public）。
+  - 本地：`origin` 重命名为 `upstream`（保留上游引用以便 `git fetch upstream`），新 `origin` 指向 `git@github.com:0mrrabbit0/RLinf.git`。
+  - `git push -u origin main` 推送全部 535+1 commit。
+- **后续**：之后所有协作产生的 commit 默认推送到 `origin`（个人仓库）；若需要同步上游更新，使用 `git fetch upstream && git merge upstream/main`。
+
 ## [2026-05-22] 纳入 Claude 协作记忆快照
 - **类型**：docs
 - **范围**：`docs/claude-notes/memory/`
