@@ -38,7 +38,7 @@
   4. **工作流支持**——HIL-SERL 示例：数据采集→训练→推理，每步有模板+一键启动，步骤间自动传 checkpoint
   5. **云边联合 + 多节点管理**——管理多台机器（cloud + edge 节点），任务分配到指定节点，Ray 集群管理 UI
   6. **本地 + 远程双模式**——既能装在训练机本地用，也能装在管理机远程控制训练服务器
-- **技术方案**：Tauri 2.x（Rust 壳）+ React 18 + TypeScript（前端）+ FastAPI Python（后端 sidecar）。详见 plan file。
+- **技术方案**：Tauri 2.x（Rust 壳）+ React 18 + TypeScript（前端）+ FastAPI Python（后端 sidecar）。详见 [gui-plan.md](gui-plan.md)。
 - **参考**：智元 AGIBOT（`pics/创建任务.jpeg` / `pics/任务模板.jpeg` / `pics/输入任务信息.jpeg`）
 - **范围**：新增 `gui/` 目录（backend/ + frontend/），不动 RLinf 核心代码
 - **分阶段交付**：
@@ -48,4 +48,4 @@
   - Phase 4（6-8w）：工作流引擎 + 云边联合
   - Phase 5（4-6w）：打磨 + 监控集成 + 发布
 - **状态**：in-progress（Phase 1 启动中）
-- **关联变更**：plan file `~/.claude/plans/joyful-meandering-gray.md`；[changelog.md](changelog.md) 2026-05-24 条目
+- **关联变更**：[gui-plan.md](gui-plan.md) `~/.claude/plans/joyful-meandering-gray.md`；[changelog.md](changelog.md) 2026-05-24 条目

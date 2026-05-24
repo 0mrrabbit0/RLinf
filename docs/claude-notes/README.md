@@ -12,6 +12,8 @@
 | [quickstart.md](quickstart.md) | 快速开始：环境、训练、评估（**通用**） |
 | [deployment.md](deployment.md) | RLinf 部署指南（Ubuntu + Docker），可一步步复用 |
 | [concepts.md](concepts.md) | 核心概念答疑：Ray / Hydra / FSDP / Megatron-LM / rollout / SGLang / vLLM |
+| [gui-plan.md](gui-plan.md) | RLinf Studio 桌面 GUI 应用设计方案（5 阶段交付计划） |
+| [session-handoff.md](session-handoff.md) | **对话接续摘要**——新机器/新会话读这个文件恢复全部上下文 |
 | [issues.md](issues.md) | 问题与解决方案记录 |
 | [memory/](memory/) | Claude 协作记忆快照（来源：`~/.claude/projects/-home-ubuntu-RLinf/memory/`） |
 
