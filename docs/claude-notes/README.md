@@ -9,7 +9,9 @@
 | [architecture.md](architecture.md) | 项目架构总览与目录速查 |
 | [requirements.md](requirements.md) | 新需求记录（来源、目标、状态） |
 | [changelog.md](changelog.md) | Claude 协作产生的变更历史 |
-| [quickstart.md](quickstart.md) | 快速开始：环境、训练、评估 |
+| [quickstart.md](quickstart.md) | 快速开始：环境、训练、评估（**通用**） |
+| [deployment.md](deployment.md) | RLinf 部署指南（Ubuntu + Docker），可一步步复用 |
+| [concepts.md](concepts.md) | 核心概念答疑：Ray / Hydra / FSDP / Megatron-LM / rollout / SGLang / vLLM |
 | [issues.md](issues.md) | 问题与解决方案记录 |
 | [memory/](memory/) | Claude 协作记忆快照（来源：`~/.claude/projects/-home-ubuntu-RLinf/memory/`） |
 

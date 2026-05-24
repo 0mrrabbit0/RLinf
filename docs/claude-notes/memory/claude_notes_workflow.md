@@ -7,7 +7,7 @@ metadata:
   originSessionId: fae750fa-a807-40f8-8c52-9b5a7a0376f9
 ---
 
-在 RLinf 仓库下与 wangyichen 协作时，所有有效信息必须及时回写到 `docs/claude-notes/` 中的对应文件。
+在 RLinf 仓库下与 zhanglinjun 协作时，所有有效信息必须及时回写到 `docs/claude-notes/` 中的对应文件。
 
 **目录与文件**（2026-05-22 创建）：
 - `docs/claude-notes/README.md` — 目录说明 + 维护约定
@@ -26,6 +26,6 @@ metadata:
 - 同一类型条目**优先追加到既有文件**，禁止重复创建文件。
 - 条目顶部为最新；每条目带日期（绝对日期，例如 2026-05-22）。
 
-**Why**：wangyichen 希望积累一份不被 Sphinx 用户文档污染的内部协作笔记，可在后续对话中追溯每一次决策与踩坑。
+**Why**：zhanglinjun 希望积累一份不被 Sphinx 用户文档污染的内部协作笔记，可在后续对话中追溯每一次决策与踩坑。
 
 **How to apply**：在每次对话结束前、或在完成一个可记录的动作后，主动 Edit/Write 对应文件；不要等用户提醒。涉及面向用户的功能变更，仍要同步 `docs/source-en` 与 `docs/source-zh`。

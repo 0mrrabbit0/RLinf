@@ -1,7 +1,7 @@
 # 项目架构文档
 
-> 最后更新：2026-05-22
-> 维护者：Claude + wangyichen
+> 最后更新：2026-05-23
+> 维护者：Claude + zhanglinjun
 
 RLinf 是一个面向 **强化学习 (Embodied / Reasoning / Agent)** 的分布式训练框架，底层使用 **Ray** 调度进程，使用 **Hydra** 管理配置，训练后端支持 **FSDP** 与 **Megatron**，rollout 后端支持 **SGLang** 与 **vLLM**。
 
@@ -75,3 +75,51 @@ RLinf/
 - Google 风格 docstring + 类型注解；Ruff 负责 lint 与 format。
 - 日志统一走 `rlinf.utils.logging.get_logger()` 或 Worker 的 `self.log_*`，**不要 `print`**。
 - 提交遵循 [Conventional Commits](https://www.conventionalcommits.org/)，每个 commit 必须 `Signed-off-by:`（`git commit -s`）。
+
+## 八、`docs/` 文档系统
+
+面向用户的 Sphinx 文档，发布到 ReadTheDocs。**双语强约束**：`source-en/` 与 `source-zh/` 的文件树、toctree、章节层级**完全一致**（已用 `diff` 验证），改一边几乎都要同步改另一边。
+
+```
+docs/
+├── README.md                # 文档构建说明
+├── Makefile / autobuild.sh  # 入口（autobuild 用 sphinx-autobuild 起本地预览）
+├── source-en/               # 英文源（线上 .../en/latest/）
+├── source-zh/               # 中文源（线上 .../zh-cn/latest/，conf.py: language=zh）
+└── claude-notes/            # ← 本目录，内部协作笔记，不会进 Sphinx 构建
+```
+
+**`source-{en,zh}/` 内部结构**（两边相同）：
+
+| 子目录 | 用途 |
+| --- | --- |
+| `index.rst` | 首页，七个 toctree 串起所有区 |
+| `conf.py` | Sphinx 配置：autodoc/autosummary/napoleon/myst_parser，主题 `pydata_sphinx_theme`；`autodoc_mock_imports` 已 mock `sglang/megatron/prismatic/libero/lerobot`（构建文档不必装重型依赖） |
+| `navbar.yml` | 顶部导航条 |
+| `_static/`, `_templates/` | 静态资源与模板 |
+| `rst_source/start/` | 安装 / VLA / LLM 快速开始 / 评估 / 分布式 |
+| `rst_source/tutorials/` | 教程：mode / multi_nodes / scheduler / rlalg / extend / advance / user / communication / components / release |
+| `rst_source/examples/` | 示例库（embodied / agentic / system） |
+| `rst_source/apis/` | API 参考（actor / rollout / env / channel / cluster / placement / worker / data / replay_buffer / embodied_data） |
+| `rst_source/blog/` | 博客 |
+| `rst_source/publications/` | 论文页（`add-publication-docs` skill 会同步写 EN+ZH 并接 toctree/navbar） |
+| `rst_source/faq.rst` | 常见问题 |
+
+**构建流程**：
+
+```bash
+export LC_ALL=C.UTF-8 LANG=C.UTF-8
+bash requirements/install.sh docs --venv .docs-venv
+source .docs-venv/bin/activate
+cd docs && bash autobuild.sh zh   # 本地预览，端口 8000；不带参数默认 en
+# 或一次性： sphinx-build docs/source-zh docs/build/html
+```
+
+`autobuild.sh` 用 `sphinx-build -W ...`，**warning 即 error**，中文文档里的语法警告也会让构建失败。
+
+**改造时的双语同步规则**：
+
+- 涉及**用户可见行为**（新增 model / env、配置键、入口脚本、新算法等）→ 同时改 `source-en` 与 `source-zh`，用 `docs-check` skill 做一致性校验。
+- 新论文 → `add-publication-docs` skill；新 example/model/env → `add-example-doc-model-env` skill。
+- 纯内部协作笔记 → 只写 `docs/claude-notes/`，**不要污染 `source-*/`**。
+

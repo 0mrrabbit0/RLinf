@@ -1,6 +1,6 @@
 ---
 name: git-remote-setup
-description: RLinf 工作副本的 git remote 布局：origin 是 wangyichen 的个人仓库，upstream 是上游
+description: RLinf 工作副本的 git remote 布局：origin 是 zhanglinjun 的个人仓库，upstream 是上游
 metadata: 
   node_type: memory
   type: project
@@ -9,10 +9,10 @@ metadata:
 
 `/home/ubuntu/RLinf` 工作副本的 git remote 布局（2026-05-22 起）：
 
-- `origin` → `git@github.com:0mrrabbit0/RLinf.git`（wangyichen 的 public 个人仓库，日常推送目标）
+- `origin` → `git@github.com:0mrrabbit0/RLinf.git`（zhanglinjun 的 public 个人仓库，日常推送目标）
 - `upstream` → 上游 RLinf 官方仓库（只读，仅用于 `git fetch upstream` 同步更新）
 
-**Why**：wangyichen 希望工作改动落到自己账号下，避免污染上游；同时保留对上游的引用，方便偶尔合并上游更新。
+**Why**：zhanglinjun 希望工作改动落到自己账号下，避免污染上游；同时保留对上游的引用，方便偶尔合并上游更新。
 
 **How to apply**：
 - 默认 `git push` 推到 `origin`（个人仓库），不要 `git push upstream`。
