@@ -14,6 +14,8 @@
 | [concepts.md](concepts.md) | 核心概念答疑：Ray / Hydra / FSDP / Megatron-LM / rollout / SGLang / vLLM |
 | [gui-plan.md](gui-plan.md) | RLinf Studio 桌面 GUI 应用设计方案（5 阶段交付计划） |
 | [session-handoff.md](session-handoff.md) | **对话接续摘要**——新机器/新会话读这个文件恢复全部上下文 |
+| [resume-prompt.md](resume-prompt.md) | **接续提示词**——直接复制粘贴给新 Claude 会话 |
+| [agent-workflow.md](agent-workflow.md) | **多 Agent 协作模式**——coding + review + recorder 并行工作流 |
 | [issues.md](issues.md) | 问题与解决方案记录 |
 | [memory/](memory/) | Claude 协作记忆快照（来源：`~/.claude/projects/-home-ubuntu-RLinf/memory/`） |
 
